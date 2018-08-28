@@ -22,10 +22,15 @@ from django.views.generic.base import RedirectView
 urlpatterns = [
     url('admin/', admin.site.urls),
 
-    url(r'^polls/', include('polls.urls')),
+    url('api/(?P<version>(v1|v2))/', include('music.urls'), name="version")
 
-    url(r'^$', RedirectView.as_view(pattern_name='myrestaurants:restaurant_list'), name='home')
-    url(r'^myrestaurants/', include('myrestaurants.urls', name='myrestaurants'))
+    # url(r'^mysite/', include('myuser.urls', namespace='myuser')),
+
+    # url(r'^polls/', include('polls.urls')),
+
+    # url(r'^$', RedirectView.as_view(pattern_name='myrestaurants:restaurant_list'), name='home'),
+    # url(r'^myrestaurants/', include('myrestaurants.urls', namespace='myrestaurants')),
+    # url(r'^dishes')
 
 
 
