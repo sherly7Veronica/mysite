@@ -22,11 +22,11 @@ from django.views.generic.base import RedirectView
 urlpatterns = [
     url('admin/', admin.site.urls),
 
-    url('api/(?P<version>(v1|v2))/', include('music.urls'), name="version")
+    url('', include('music.urls'), name="music"),
+    url('', include('blog.urls'), name="blog"),
+    # url('', include('myuser.urls', namespace="user")),
+    url('', include('quiz.urls'), name="quiz"),
 
-    # url(r'^mysite/', include('myuser.urls', namespace='myuser')),
-
-    # url(r'^polls/', include('polls.urls')),
 
     # url(r'^$', RedirectView.as_view(pattern_name='myrestaurants:restaurant_list'), name='home'),
     # url(r'^myrestaurants/', include('myrestaurants.urls', namespace='myrestaurants')),
@@ -38,5 +38,6 @@ urlpatterns = [
     # url('^blog/', views.post_list, name='blog'),
 
     # url('^signup/', views.signup, name='signup'),
-    # url('^login/', views.login, name='login')
+    # url('^mysite/', views.mysite, name='mysite')
+
 ]
