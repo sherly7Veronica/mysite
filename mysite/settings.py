@@ -41,6 +41,12 @@ INSTALLED_APPS = [
     'users',
     'rest_framework',
     'music',
+    'stakeholder',
+    'cp_eav',
+    'utils',
+    'hubs',
+    'quote',
+    # 'eav',
     # 'myrestaurants',
 ]
 # Application definition
@@ -136,10 +142,30 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ),
 
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10,
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    # 'PAGE_SIZE': 10,
     'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
 
 }
 
 AUTH_USER_MODEL = 'users.MyUser'
+
+STAKEHOLDER_IDENTIFIERS = {
+    'SHIPPER': 'Shipper',
+    'TRUCKER': 'Trucker',
+    'SHIPPING_LINE': 'Forwarder',
+    'CHA': 'CHA',
+    'SURVEYOR': 'Surveyor'
+}
+
+STAKEHOLDER_TYPE_VENDOR = 'Vendor'
+STAKEHOLDER_TYPE_CUSTOMER = 'Customer'
+STAKEHOLDER_TYPE_AGENT = 'Surveyor'
+
+
+STAKEHOLDER_TYPE = {
+    STAKEHOLDER_IDENTIFIERS['TRUCKER']: STAKEHOLDER_TYPE_VENDOR,
+    STAKEHOLDER_IDENTIFIERS['SHIPPING_LINE']: STAKEHOLDER_TYPE_VENDOR,
+    STAKEHOLDER_IDENTIFIERS['SHIPPER']: STAKEHOLDER_TYPE_CUSTOMER,
+    STAKEHOLDER_IDENTIFIERS['SURVEYOR']: STAKEHOLDER_TYPE_AGENT,
+}

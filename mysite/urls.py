@@ -26,6 +26,8 @@ urlpatterns = [
     url('', include('blog.urls'), name="blog"),
     # url('', include('myuser.urls', namespace="user")),
     url('', include('quiz.urls'), name="quiz"),
+    url('', include('quote.urls'), name="quote"),
+    url('', include('hubs.urls'), name="hubs"),
 
 
     # url(r'^$', RedirectView.as_view(pattern_name='myrestaurants:restaurant_list'), name='home'),

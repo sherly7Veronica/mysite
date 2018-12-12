@@ -54,8 +54,8 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'email'
 
-    def __str__(self):
-        return str(self.name.encode('utf8', 'ignore'))
+    # def __str__(self):
+    #     return str(self.name.encode('utf8', 'ignore'))
 
     class Meta:
         verbose_name = _('user')
